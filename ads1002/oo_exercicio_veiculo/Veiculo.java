@@ -1,36 +1,43 @@
 public class Veiculo {
-    // duas propriedade que veículos em geral possuem
-    // ambas encapsuladas 
-    private String marca = "ferrari";
-    private int velocidade = 200;
+    // duas propriedades que veículos em geral possuem
+    // ambas encapsuladas
 
-    // métodos setters para ambas
-    public void setVelocidade(int velocidade) {
-        if (velocidade > 350) {
-            this.velocidade = velocidade;
-        }
-    }
-
-    public void setMarca(String marca) {
-        if (marca != "ferrari") {
-            this.marca = marca;
-        }
-    }
+    // metodos setters para ambas
 
     // dois comportamentos que veículos em geral possuem
-    void velocidade() {
-        if (velocidade >= 100) {
-            System.out.printf("%s cuidado você está a", velocidade, "%s diminua sua velocidade");
-        } else if (velocidade > 0) {
-            System.out.printf("%s você está dentro do limite de velocidade");
-        } else {
-            System.out.printf("%s você está parado");
+    String nome;
+    private int gasolina = 0;
+    private int kilometragem = 0;
+
+    public void setGasolina(int g) {
+        if (g >= 1 && g <= 100) {
+            gasolina = g;
         }
     }
 
-    void marca() {
-        if (marca == "ferrari") {
-            System.out.printf("%s parabéns você possui uma", marca);
+    public void setKilometragem(int k) {
+        if (k >= 0 && k <= 1000)
+            kilometragem = k;
+    }
+
+    void acelerar() {
+        if (gasolina >= 10) {
+            System.out.printf("%s acelerando...\n", nome);
+            gasolina = gasolina - 10;
+            if (kilometragem < 1000)
+                kilometragem = kilometragem + 10;
+            else {
+                System.out.printf("%s não tem combustível!!\n", nome);
+            }
+        }
+    }
+
+    void abastecer() {
+        if(gasolina <= 100){
+            System.out.printf("%s abastecendo...\n", nome);
+            gasolina = 100;}
+        else{
+            System.out.printf("%s não precisa abastecer!!", nome);
         }
     }
 }
