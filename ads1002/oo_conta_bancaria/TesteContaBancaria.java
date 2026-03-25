@@ -1,3 +1,4 @@
+// comando Alt Gr + w aplica ? ponto de interrogação no Galaxy Book 2
 import java.util.Random;
 
 public class TesteContaBancaria {
@@ -14,7 +15,7 @@ public class TesteContaBancaria {
 
             ContaBancaria ativa = gerador.nextBoolean() ? c1 : c2;
             ContaBancaria destino = (ativa == c1) ? c2 : c1;
-
+    
             int operacao = gerador.nextInt(3);
 
             double valor = 1 + (500 - 1) * gerador.nextDouble();
@@ -39,7 +40,7 @@ public class TesteContaBancaria {
             c2.exibirExtrato();
 
             try {
-                Thread.sleep(1000);
+                Thread.sleep(10000);
             } catch (InterruptedException e) {
                 System.out.println("Erro na pausa da thread");
             }
