@@ -2,9 +2,9 @@ import javax.swing.JOptionPane;
 
 public class OperacoesVetores {
     // vetor precisa ser static
-    static int[] num = new int[5];
+    static int[] num = new int[7];
     static int quantidade = 0; // meu index(i)
-    static String menu = "1 - Adicionar\n 2 - Exibir\n 3 - Buscar\n 4 - Ver o maior\n 0 - Sair";
+    static String menu = "1 - Adicionar\n 2 - Exibir\n 3 - Buscar\n 4 - Ver o maior\n 5 - Somar todos os elementos\n 6 - Ver elementos pares\n 0 - Sair";
 
     public static void main(String[] args) {
         int opcao;
@@ -24,6 +24,12 @@ public class OperacoesVetores {
                     break;
                 case 4:
                     maior();
+                    break;
+                case 5:
+                    soma();
+                    break;
+                case 6:
+                    pares();
                     break;
             }
         } while (opcao != 0);
@@ -76,8 +82,34 @@ public class OperacoesVetores {
         }
         int maior = num[0];
         for (int i = 1; i < quantidade; i++) {
-            maior = num[i] > maior ? num[i] : maior; // if-else de uma linha só 
+            maior = num[i] > maior ? num[i] : maior; // if-else de uma linha só
         }
         JOptionPane.showMessageDialog(null, maior + " é o maior valor");
+    }
+
+    static void soma() {
+        if (quantidade == 0) {
+            JOptionPane.showMessageDialog(null, "Nenhum valor cadastrado");
+            return;
+        }
+        int soma = 0;
+        for (int num : num) {
+            soma += num;
+        }
+        JOptionPane.showMessageDialog(null, "Soma " + soma);
+    }
+
+    static void pares() {
+        if (quantidade == 0) {
+            JOptionPane.showMessageDialog(null, "Nenhum valor cadastrado");
+            return;
+        }
+        int pares = num[quantidade];
+        for (int num : num) {
+            if (num % 2 == 0) {
+                pares++;
+            }
+            JOptionPane.showMessageDialog(null, pares);
+        }
     }
 }
