@@ -5,7 +5,7 @@ public class PlayList {
     public static void main(String[] args) {
 
         // Lista de músicas
-        List<Musica> musicas = new ArrayList<>();
+        List<Musica> musicas = new ArrayList<Musica>();
 
         // Menu de opções
         String menu = "1 - Adicionar\n2 - Visualizar\n3 - Avaliar\n0 - Sair";
@@ -41,7 +41,7 @@ public class PlayList {
 
                     for (Musica i : musicas) {
                         if (i.getTitulo().equalsIgnoreCase(nomeBusca)) {
-                            int nota = Integer.parseInt(JOptionPane.showInputDialog("Nota (0 a 10):"));
+                            int nota = Integer.parseInt(JOptionPane.showInputDialog("Nota (0 a 10):")); //conversão para inteiro
                             i.setNota(nota);
                         }
                     }
